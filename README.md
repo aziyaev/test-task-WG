@@ -40,7 +40,7 @@ Bit operation method 0:00:00.190323
 
 [Source Task 2.1](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferQueue_task2.py)
 
-Метод push()
+Метод push(item)
 * Добавление элемента в очередь.
 * Сложность O(1)
 ```python
@@ -72,7 +72,7 @@ Bit operation method 0:00:00.190323
 
 [Source Task 2.2](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferList_task2.py)
 
-Метод push()
+Метод push(el)
 * Добавление элемента в очередь.
 * Сложность O(1)
 ```python
@@ -106,3 +106,5 @@ Bit operation method 0:00:00.190323
 **Задание 3:**
 
 3. На языке Python реализовать функцию, которая быстрее всего (по процессорным тикам) отсортирует данный ей массив чисел. Массив может быть любого размера со случайным порядком чисел (в том числе и отсортированным). Объяснить почему вы считаете, что функция соответствует заданным критериям.
+
+
