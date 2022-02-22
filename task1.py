@@ -11,13 +11,13 @@ def main():
     start_time = datetime.now()
     for num in range(1000000):
         isEvenSimple(num)
-    print(datetime.now() - start_time)
+    print(f"Division method  {datetime.now() - start_time}")
 
     # Алгоритм с битовой операцией И
     start_time = datetime.now()
     for num in range(1000000):
         isEvenBite(num)
-    print(datetime.now() - start_time)
+    print(f"Bit operation method {datetime.now() - start_time}")
 
 
 if __name__ == '__main__':
