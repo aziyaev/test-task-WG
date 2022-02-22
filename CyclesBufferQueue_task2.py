@@ -37,8 +37,8 @@ class CyclesBuffer:
             index += 1
             return index
 
-    def count(self):
+    def get_count(self):
         return self.count
 
-    def size(self):
+    def get_size(self):
         return self.size
