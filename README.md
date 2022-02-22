@@ -40,9 +40,68 @@ Bit operation method 0:00:00.190323
 
 [Source Task 2.1](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferQueue_task2.py)
 
+Метод push()
+* Добавление элемента в очередь.
+* Сложность O(1)
+```python
+  def push(self, item):
+      if self.is_full():
+          raise Exception("Buffer is full")
+
+      self.items[self.head_index] = item
+      self.count += 1
+      self.head_index = self.move_index(self.head_index)
+```
+
+Метод pop()
+* Удаляет элемент из начала очереди и возвращает его.
+* Сложность O(1)
+```python
+  def pop(self):
+      if self.is_empty():
+          raise Exception("Buffer is empty")
+
+      item = self.items[self.tail_index]
+      self.count -= 1
+      self.tail_index = self.move_index(self.tail_index)
+
+      return item
+```
+
 * Связный список
 
 [Source Task 2.2](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferList_task2.py)
+
+Метод push()
+* Добавление элемента в очередь.
+* Сложность O(1)
+```python
+  def push(self, el):
+      if self.isListFull():
+          raise Exception("Buffer is full")
+
+      self.head_el.set_data(el)
+      self.count += 1
+      self.head_el = self.head_el.get_next_el()
+```
+
+Метод pop()
+* Удаляет элемент из начала очереди и возвращает его.
+* Сложность O(1)
+```python
+  def pop(self):
+      if self.isListEmpty():
+          raise Exception("Buffer is empty")
+
+      item = self.tail_el.get_data()
+      self.count -= 1
+      self.tail_el = self.tail_el.get_next_el()
+
+      return item
+```
+
+Как можно заметить, обе реализации имеют в среднем равное время выполнения ```O(1)```. Возможно, есть смысл сравнить с Deques, которые имеют скорость O(1) в любом направлении. Что ставит их в выигрышное положение по сравнению с другими структурами. Так же не стоит забывать и о том, что связные списки могут занимать больше места, так как имеют указатели на следующий элемент.
+
 
 **Задание 3:**
 
