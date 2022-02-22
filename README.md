@@ -36,11 +36,11 @@ Bit operation method 0:00:00.190323
 
 2. На языке Python (2.7) реализовать минимум по 2 класса реализовывающих циклический буфер FIFO. Объяснить плюсы и минусы каждой реализации.
 
-1.  Массив
+*  Массив
 
 [Source Task 2.1](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferQueue_task2.py)
 
-2. Связный список
+* Связный список
 
 [Source Task 2.2](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferList_task2.py)
 
