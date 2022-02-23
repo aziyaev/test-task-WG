@@ -36,14 +36,75 @@ Bit operation method 0:00:00.190323
 
 2. На языке Python (2.7) реализовать минимум по 2 класса реализовывающих циклический буфер FIFO. Объяснить плюсы и минусы каждой реализации.
 
-1.  Массив
+*  Массив
 
 [Source Task 2.1](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferQueue_task2.py)
 
-2. Связный список
+Метод push(item)
+* Добавление элемента в очередь.
+* Сложность O(1)
+```python
+  def push(self, item):
+      if self.is_full():
+          raise Exception("Buffer is full")
+
+      self.items[self.head_index] = item
+      self.count += 1
+      self.head_index = self.move_index(self.head_index)
+```
+
+Метод pop()
+* Удаляет элемент из начала очереди и возвращает его.
+* Сложность O(1)
+```python
+  def pop(self):
+      if self.is_empty():
+          raise Exception("Buffer is empty")
+
+      item = self.items[self.tail_index]
+      self.count -= 1
+      self.tail_index = self.move_index(self.tail_index)
+
+      return item
+```
+
+* Связный список
 
 [Source Task 2.2](https://github.com/aziyaev/test-task-WG/blob/master/CyclesBufferList_task2.py)
 
-**Задание 3:
+Метод push(el)
+* Добавление элемента в очередь.
+* Сложность O(1)
+```python
+  def push(self, el):
+      if self.isListFull():
+          raise Exception("Buffer is full")
+
+      self.head_el.set_data(el)
+      self.count += 1
+      self.head_el = self.head_el.get_next_el()
+```
+
+Метод pop()
+* Удаляет элемент из начала очереди и возвращает его.
+* Сложность O(1)
+```python
+  def pop(self):
+      if self.isListEmpty():
+          raise Exception("Buffer is empty")
+
+      item = self.tail_el.get_data()
+      self.count -= 1
+      self.tail_el = self.tail_el.get_next_el()
+
+      return item
+```
+
+Как можно заметить, обе реализации имеют в среднем равное время выполнения методов push() и pop() ```O(1)```. Возможно, есть смысл сравнить с Deques, которые поддерживают эффектиные по памяти операции добавления и извлечения элементов с любой стороны с примерно одинаковой скоростью ```O(1)```. Так же не стоит забывать и о том, что связные списки могут занимать больше места, так как имеют указатели на следующий элемент.
+
+
+**Задание 3:**
 
 3. На языке Python реализовать функцию, которая быстрее всего (по процессорным тикам) отсортирует данный ей массив чисел. Массив может быть любого размера со случайным порядком чисел (в том числе и отсортированным). Объяснить почему вы считаете, что функция соответствует заданным критериям.
+
+
